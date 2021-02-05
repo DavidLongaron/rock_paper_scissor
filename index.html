@@ -1,0 +1,129 @@
+<head>
+    <meta charset="UTF-08">
+
+    <link href="style.css">
+
+
+
+
+
+ <body>
+
+
+
+
+
+
+
+
+
+
+
+    <script> 
+    'use strict';
+
+
+// You put 1 word into the programn
+// and the programmn choose between 3 words and choose 1 at random as an answer.
+
+//Calcula un numero entre 1 y 3
+//function getRandomInt(min, max) {
+   // return Math.floor(Math.random() * (max - min + 1) + min);
+//}
+//Numero random queda asignado
+//let computerResponse = getRandomInt(1, 3);
+
+
+//Dependiendo del numero que quede asignado devuelve un valor.
+//function computerPlay(){
+//if(computerResponse===1){
+//    return  "rock";
+//  }
+//  else if(computerResponse===2){
+ //     return "paper";
+//  }
+//  else {
+ //     return "scissors"; 
+//  }
+//  }
+//Se elige el resultado dependiendo de la funcion anterior y lo que elija el usuario
+let iaScore= 0;
+let playerScore= 0;
+
+function rockPapSci(){
+
+    function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+//Numero random queda asignado
+let computerResponse = getRandomInt(1, 3);
+
+
+//Dependiendo del numero que quede asignado devuelve un valor.
+function computerPlay(){
+if(computerResponse===1){
+    return  "rock";
+}
+else if(computerResponse===2){
+    return "paper";
+}
+else {
+    return "scissors"; 
+}
+}
+    let playerChoice= prompt("Rock, paper or scissors?");
+    playerChoice;
+    let playerResult= playerChoice.toLowerCase();
+ let computerResult= computerPlay();
+if(playerResult===computerResult){
+    return console.log("Draw, try again.")
+}
+else if (playerResult==="rock"&& computerResult==="paper" ){
+    iaScore++;
+    return console.log(`IA wins. Paper wins against rock. IA:${iaScore} Player: ${playerScore}`) 
+}
+else if (playerResult==="rock"&& computerResult==="scissors" ){
+    playerScore++;
+    return console.log(`Player wins. rock wins against scissors. IA:${iaScore} Player: ${playerScore}`) 
+}
+else if (playerResult==="scissors"&& computerResult==="paper" ){
+    playerScore++;
+    return console.log(`Players wins. scissors wins against paper. IA:${iaScore} Player: ${playerScore}`) 
+}
+else if (playerResult==="scissors"&& computerResult==="rock" ){
+    iaScore++;
+    return console.log(`IA wins. Rock wins against scissors. IA:${iaScore} Player: ${playerScore}`) 
+}
+else if (playerResult==="paper"&& computerResult==="scissors" ){
+    iaScore++;
+    return console.log(`IA wins. Paper loses against scissors. IA:${iaScore} Player: ${playerScore}`) 
+}
+else if (playerResult==="paper"&& computerResult==="rock" ){
+    playerScore++;
+    return console.log(`Player wins. Paper wins against rock. IA:${iaScore} Player: ${playerScore}`) 
+} 
+}
+// Poner el resultado del jugador
+
+//El juego se repite 5 veces
+function game(){
+    let i=0; for (i=1; i<6; i++){
+     
+        rockPapSci();
+    }
+   if(playerScore>iaScore)
+{ return console.log("Player wins")
+   }
+   else if(iaScore>playerScore){
+       return console.log("Ia wins")
+   }
+   else{
+       return console.log("Draw")
+   }
+}  
+
+    game();
+    
+    </script>
+ </body>   
+</head>
